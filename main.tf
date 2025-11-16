@@ -19,7 +19,7 @@ resource "aws_iam_role" "cicd" {
   name = "cicd-role"
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
-    Statement = [
+    Statement = concat([
       {
         "Effect" : "Allow",
         "Principal" : {
@@ -35,6 +35,6 @@ resource "aws_iam_role" "cicd" {
           }
         }
       }
-    ]
+    ], var.trust_policy_additional_statements)
   })
 }

@@ -12,3 +12,9 @@ variable "gh_repository" {
   type = string
   description = "The GitHub repository name"
 }
+
+variable "trust_policy_additional_statements" {
+  type = list(any)
+  description = "Additional statements to add to the trust policy"
+  default = []
+}
